@@ -75,6 +75,7 @@ next:
   cmp       ch, CYLS
   jb        readloop
 
+  mov       [0x0ff0], ch
   jmp       0x8200
 
 fin:
