@@ -75,6 +75,8 @@ next:
   cmp       ch, CYLS
   jb        readloop
 
+  jmp       0x8200
+
 fin:
   hlt
   jmp		fin
