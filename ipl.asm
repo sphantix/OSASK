@@ -1,6 +1,8 @@
   ; haribote-ipl
   ; TAB=4
 
+  CYLS equ 10
+
 org		0x7c00
 
   jmp		entry
@@ -64,6 +66,14 @@ next:
   add       cl, 1
   cmp       cl, 18
   jbe       readloop
+  mov       cl, 1
+  add       dh, 1
+  cmp       dh, 2
+  jb        readloop
+  mov       dh, 0
+  add       ch, 1
+  cmp       ch, CYLS
+  jb        readloop
 
 fin:
   hlt
